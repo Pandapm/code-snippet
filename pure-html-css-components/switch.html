@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>switch</title>
+    <style>
+        .switch-container {
+            height: 40px;
+            width: 80px;
+        }
+
+        .switch {
+            display: none;
+        }
+
+        label {
+            position: relative;
+            display: block;
+            background-color: #EEEEEE;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        label:before {
+            content: '';
+            display: block;
+            position: relative;
+            left: 40px;
+            border-radius: 25px;
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            opacity: 1;
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.08);
+        }
+
+        label:after {
+            position: absolute;
+            top: 0;
+            right: 40px;
+            content: '';
+            display: block;
+            border-radius: 25px;
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            opacity: 0;
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.08);
+        }
+
+        #switch:checked~label:after {
+            opacity: 1;
+            right: 0;
+            transition: right .3s ease-out;
+        }
+
+        #switch:checked~label:before {
+            opacity: 0;
+        }
+
+        #switch:not(:checked)~label:before {
+            left: 0;
+            transition: left .3s ease-out;
+        }
+
+        #switch:checked~label {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="switch-container">
+        <input id="switch" type="checkbox" class="switch" />
+        <label for="switch"></label>
+    </div>
+</body>
+
+</html>
